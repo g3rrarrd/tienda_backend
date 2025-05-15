@@ -1,0 +1,260 @@
+[
+    {
+        "model": "usuario.usuario",
+        "pk": "0801199912345",
+        "fields": {
+            "nombres": "Juan",
+            "apellidos": "Pérez",
+            "correo": "juan.perez@example.com",
+            "telefono": "98765432",
+            "contrasenia": "secreta123"
+        }
+    },
+    {
+        "model": "usuario.usuario",
+        "pk": "0801199912344",
+        "fields": {
+            "nombres": "Juana",
+            "apellidos": "Magdalena",
+            "correo": "juana.magdalena@example.com",
+            "telefono": "98065432",
+            "contrasenia": "secreta123"
+        }
+    },
+    {
+        "model": "empleado.rol",
+        "pk": 1,
+        "fields": {
+            "rol": "Jefe"
+        }
+    },
+    {
+        "model": "empleado.empleado",
+        "pk": 1,
+        "fields": {
+            "usuario": "0801199912345",
+            "rol": 1,
+            "codigo_empleado": "EMP001",
+            "fecha_contrato": "2022-01-15",
+            "salario": "15000.00",
+            "estado": true
+        }
+    },
+    {
+        "model": "proveedor.proveedor",
+        "pk": 1,
+        "fields": {
+            "usuario": "0801199912344",
+            "codigo": "PROV01",
+            "fecha_cobro": "2024-05-01"
+        }
+    },
+    {
+        "model": "inventario.inventario",
+        "pk": "INV001",
+        "fields": {
+            "precio_compra": "100.00",
+            "precio_venta": "150.00"
+        }
+    },
+    {
+        "model": "producto.producto",
+        "pk": "PROD001", 
+        "fields": {
+            "inventario": "INV001", 
+            "tipo_producto": "calzado",
+            "talla": "42",
+            "color": "Rojo"
+        }
+    },
+    {
+        "model": "producto.producto",
+        "pk": "PROD002",
+        "fields": {
+            "inventario": "INV001",
+            "tipo_producto": "ropa",
+            "talla": "M",
+            "color": "Negro"
+        }
+    },
+    {
+        "model": "credito.credito",
+        "pk": "CRED001",
+        "fields": {
+            "usuario": "0801199912345",
+            "descripcion": "Préstamo personal"
+        }
+    },
+    {
+        "model": "pago.pagocredito",
+        "pk": 1,
+        "fields": {
+            "monto": "1000.00",
+            "fecha_pago": "2024-04-20",
+            "metodo_pago": "efectivo",
+            "referencia": "RF123",
+            "usuario": "0801199912345"
+        }
+    },
+    {
+        "model": "ventas.venta",
+        "pk": "VENTA001",
+        "fields": {
+            "empleado": "0801199912345",
+            "credito": "CRED001",
+            "monto": "1500.00",
+            "metodo_pago": "efectivo",
+            "fecha" : "2024-04-10"
+        }
+    },
+    {
+        "model": "ventas.venta_x_producto",
+        "pk": 1,
+        "fields": {
+            "venta": "VENTA001",
+            "producto": "PROD001",
+            "cantidad": 2,
+            "precio_unitario": "1500.00",
+            "descuento": "0.00"
+        }
+    },
+    {
+        "model": "pago.pagoempleado",
+        "pk": 1,
+        "fields": {
+            "monto": "1000.00",
+            "fecha_pago": "2024-04-20",
+            "metodo_pago": "efectivo",
+            "referencia": "RF123",
+            "empleado": "0801199912345",
+            "concepto_nomina": "Sueldo Abril"
+        }
+    },
+    {
+        "model": "compra.compra",
+        "pk": "COMP001",
+        "fields": {
+            "proveedor": "0801199912344",
+            "monto": "1000.00",
+            "metodo_pago": "efectivo",
+            "tipo_compra": "contado",
+            "fecha_compra": "2024-03-15"
+        }
+    },
+    {
+        "model": "compra.compra_x_producto",
+        "pk": 1,
+        "fields": {
+            "compra": "COMP001",
+            "producto": "PROD001",
+            "precio_unitario" : "1000.00",
+            "monto" : "10000.00",
+            "cantidad": 10
+        }
+    },
+
+    {
+        "model": "usuario.usuario",
+        "pk": "0801199912346",
+        "fields": {
+            "nombres": "Carlos",
+            "apellidos": "Ram\u00edrez",
+            "correo": "carlos.ramirez@example.com",
+            "telefono": "97654321",
+            "contrasenia": "clave456"
+        }
+    },
+    {
+        "model": "usuario.usuario",
+        "pk": "0801199912347",
+        "fields": {
+            "nombres": "Ana",
+            "apellidos": "Gonz\u00e1lez",
+            "correo": "ana.gonzalez@example.com",
+            "telefono": "96543210",
+            "contrasenia": "clave789"
+        }
+    },
+    {
+        "model": "empleado.empleado",
+        "pk": "0801199912346",
+        "fields": {
+            "usuario": "0801199912346",
+            "rol": 1,
+            "codigo_empleado": "EMP002",
+            "fecha_contrato": "2023-02-01",
+            "salario": "12000.00",
+            "estado": true
+        }
+    },
+    {
+        "model": "inventario.inventario",
+        "pk": "INV002",
+        "fields": {
+            "precio_compra": "200.00",
+            "precio_venta": "300.00"
+        }
+    },
+    {
+        "model": "producto.producto",
+        "pk": "PROD003",
+        "fields": {
+            "inventario": "INV002",
+            "tipo_producto": "deporte",
+            "talla": "L",
+            "color": "Azul"
+        }
+    },
+    {
+        "model": "producto.producto",
+        "pk": "PROD004",
+        "fields": {
+            "inventario": "INV002",
+            "tipo_producto": "llaveros",
+            "talla": "U",
+            "color": "Verde"
+        }
+    },
+    {
+        "model": "credito.credito",
+        "pk": "CRED002",
+        "fields": {
+            "usuario": "0801199912346",
+            "descripcion": "Cr\u00e9dito para equipo deportivo"
+        }
+    },
+    {
+        "model": "ventas.venta",
+        "pk": "VENTA002",
+        "fields": {
+            "empleado": "0801199912346",
+            "credito": "CRED002",
+            "monto": "600.00",
+            "metodo_pago": "transferencia",
+            "fecha": "2024-05-10"
+        }
+    },
+    {
+        "model": "ventas.venta_x_producto",
+        "pk": 2,
+        "fields": {
+            "venta": "VENTA002",
+            "producto": "PROD003",
+            "cantidad": 1,
+            "precio_unitario": "600.00",
+            "descuento": "0.00"
+        }
+    },
+    {
+        "model": "pago.pagoempleado",
+        "pk": 2,
+        "fields": {
+            "monto": "1200.00",
+            "fecha_pago": "2024-05-01",
+            "metodo_pago": "transferencia",
+            "referencia": "REF456",
+            "empleado": "0801199912346",
+            "concepto_nomina": "Sueldo Mayo"
+        }
+    }
+]
