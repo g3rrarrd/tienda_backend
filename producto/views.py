@@ -40,3 +40,32 @@ class GetRequeirimiento(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
+class GetProductsByStorage(APIView):
+    def get(self, request):
+
+        try:
+            codigo_inventario = request.query_params.get('codigo_inventario')
+
+            if not codigo_inventario:
+                return Response(
+                    {'error' : 'el campo codigo_inventario es requerido'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            list_productos = producto.objects.filter(inventario=codigo_inventario)
+            serializer = ProductoSerializer(list_productos, many=True)
+
+            return Response(
+                serializer.data,
+                status=status.HTTP_200_OK
+            )
+        except producto.DoesNotExist:
+            return Response(
+                {'error' : 'No hay productos en existencia'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Exception as e:
+            return Response(
+                {'error' : str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
