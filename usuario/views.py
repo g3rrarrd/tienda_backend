@@ -23,7 +23,13 @@ class ValidateUser(APIView):
                     status=status.HTTP_400_BAD_REQUEST
                 )
             
-            usr = usuario.objects.exists(identidad=identidad, contrasenia=contrasenia)
+            if(usuario.objects.filter(identidad=identidad, contrasenia=contrasenia).exists() == False):
+                return Response(
+                    {'error' : 'Usuario o Contraseña no validos'},
+                    status=status.HTTP_401_UNAUTHORIZED
+                )
+            
+            usr = usuario.objects.get(identidad=identidad, contrasenia=contrasenia)
             serializer = UsuarioSerializer(usr)
 
             return Response(
